@@ -153,9 +153,11 @@ class PlannerViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let routeVC = segue.destination as! RouteViewController
-        routeVC.destination = self.destinationTextField.text!
-        routeVC.destinationLocation = self.destinationLocation
-        routeVC.routes = self.routes
+        if segue.identifier == "showRoutes" {
+            let routeVC = segue.destination as! RouteViewController
+            routeVC.destination = self.destinationTextField.text!
+            routeVC.destinationLocation = self.destinationLocation
+            routeVC.routes = self.routes
+        }
     }
 }

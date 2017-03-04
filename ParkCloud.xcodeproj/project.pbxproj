@@ -14,6 +14,8 @@
 		358ACC871E6ACC68005C527A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358ACC851E6ACC68005C527A /* Main.storyboard */; };
 		358ACC891E6ACC68005C527A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 358ACC881E6ACC68005C527A /* Assets.xcassets */; };
 		358ACC8C1E6ACC68005C527A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358ACC8A1E6ACC68005C527A /* LaunchScreen.storyboard */; };
+		378C3E701E6B7DF5003F4E31 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378C3E6F1E6B7DF5003F4E31 /* ModalViewController.swift */; };
+		378C3E721E6B815B003F4E31 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378C3E711E6B815B003F4E31 /* DismissSegue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		358ACC881E6ACC68005C527A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		358ACC8B1E6ACC68005C527A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		358ACC8D1E6ACC68005C527A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		378C3E6F1E6B7DF5003F4E31 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		378C3E711E6B815B003F4E31 /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		3E79C57BDA7445EC308F4B51 /* Pods-ParkCloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkCloud.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParkCloud/Pods-ParkCloud.release.xcconfig"; sourceTree = "<group>"; };
 		E3ED42D4954855626CC259D1 /* Pods-ParkCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParkCloud/Pods-ParkCloud.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +76,7 @@
 		358ACC801E6ACC68005C527A /* ParkCloud */ = {
 			isa = PBXGroup;
 			children = (
+				378C3E711E6B815B003F4E31 /* DismissSegue.swift */,
 				358ACC811E6ACC68005C527A /* AppDelegate.swift */,
 				358ACC881E6ACC68005C527A /* Assets.xcassets */,
 				358ACC8D1E6ACC68005C527A /* Info.plist */,
@@ -79,6 +84,7 @@
 				358ACC851E6ACC68005C527A /* Main.storyboard */,
 				358ACC831E6ACC68005C527A /* PlannerViewController.swift */,
 				35058C4E1E6B69D000B69B89 /* RouteViewController.swift */,
+				378C3E6F1E6B7DF5003F4E31 /* ModalViewController.swift */,
 			);
 			path = ParkCloud;
 			sourceTree = "<group>";
@@ -214,6 +220,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				378C3E701E6B7DF5003F4E31 /* ModalViewController.swift in Sources */,
+				378C3E721E6B815B003F4E31 /* DismissSegue.swift in Sources */,
 				358ACC841E6ACC68005C527A /* PlannerViewController.swift in Sources */,
 				358ACC821E6ACC68005C527A /* AppDelegate.swift in Sources */,
 				35058C4F1E6B69D000B69B89 /* RouteViewController.swift in Sources */,
