@@ -306,11 +306,73 @@
                         <outlet property="destinationTextField" destination="dhy-j0-vaQ" id="Db7-73-DsW"/>
                         <outlet property="mapView" destination="qit-vz-VSy" id="HWD-Bb-V7N"/>
                         <outlet property="originTextField" destination="jmb-vl-mPF" id="eFi-ac-crI"/>
+                        <segue destination="KeB-eQ-t81" kind="show" identifier="showRoutes" id="jmT-3B-3z2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3M-a2-zoq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="862.21889055472275"/>
+        </scene>
+        <!--Route View Controller-->
+        <scene sceneID="keM-Gn-Hy5">
+            <objects>
+                <viewController id="KeB-eQ-t81" customClass="RouteViewController" customModule="ParkCloud" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oXT-0G-aDl"/>
+                        <viewControllerLayoutGuide type="bottom" id="d8K-5S-5gx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Pv-UX-unz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aff-wP-tUm">
+                                <rect key="frame" x="0.0" y="-10" width="375" height="86"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driving to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFV-hF-hAA">
+                                        <rect key="frame" x="8" y="34" width="359" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.25882352939999997" green="0.80784313730000001" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="JFV-hF-hAA" firstAttribute="trailing" secondItem="aff-wP-tUm" secondAttribute="trailingMargin" id="4it-x3-CdS"/>
+                                    <constraint firstAttribute="bottom" secondItem="JFV-hF-hAA" secondAttribute="bottom" constant="31" id="JxV-Kj-5mn"/>
+                                    <constraint firstItem="JFV-hF-hAA" firstAttribute="top" secondItem="aff-wP-tUm" secondAttribute="top" constant="34" id="Zif-27-qr9"/>
+                                    <constraint firstItem="JFV-hF-hAA" firstAttribute="leading" secondItem="aff-wP-tUm" secondAttribute="leadingMargin" id="bHg-k6-P2U"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H2I-Jz-GwN">
+                                <rect key="frame" x="0.0" y="185" width="375" height="418"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PeA-fc-4Wx" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="76" width="375" height="109"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aff-wP-tUm" firstAttribute="leading" secondItem="2Pv-UX-unz" secondAttribute="leading" id="0Ks-P5-3Sp"/>
+                            <constraint firstAttribute="trailing" secondItem="aff-wP-tUm" secondAttribute="trailing" id="AN2-bs-BFq"/>
+                            <constraint firstItem="aff-wP-tUm" firstAttribute="trailing" secondItem="PeA-fc-4Wx" secondAttribute="trailing" id="QNq-CO-Vep"/>
+                            <constraint firstItem="d8K-5S-5gx" firstAttribute="top" secondItem="PeA-fc-4Wx" secondAttribute="bottom" constant="418" id="aOh-1l-2Tk"/>
+                            <constraint firstItem="PeA-fc-4Wx" firstAttribute="top" secondItem="oXT-0G-aDl" secondAttribute="bottom" constant="76" id="cAE-RR-G5a"/>
+                            <constraint firstItem="aff-wP-tUm" firstAttribute="top" secondItem="2Pv-UX-unz" secondAttribute="top" constant="-10" id="ceX-Au-fcZ"/>
+                            <constraint firstItem="PeA-fc-4Wx" firstAttribute="top" secondItem="aff-wP-tUm" secondAttribute="bottom" id="hAc-Lv-x79"/>
+                            <constraint firstItem="aff-wP-tUm" firstAttribute="leading" secondItem="PeA-fc-4Wx" secondAttribute="leading" id="sqf-5V-3hX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="drivingToLabel" destination="JFV-hF-hAA" id="A22-ME-XJR"/>
+                        <outlet property="mapView" destination="PeA-fc-4Wx" id="66v-59-skF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xg6-uJ-VJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1904.8" y="862.21889055472275"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0as-ls-LFY">

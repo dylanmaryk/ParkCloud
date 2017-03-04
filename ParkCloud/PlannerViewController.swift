@@ -23,6 +23,9 @@ class PlannerViewController: UIViewController {
     
     @IBOutlet weak var mapView: GMSMapView!
     
+    var destinationLocation: (lat: Float, lng: Float)!
+    var routes = [Route]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,8 +38,8 @@ class PlannerViewController: UIViewController {
         let destinationGeocodingRequestURL = self.geocodingRequestURL(forAddress: self.destinationTextField.text!)
         
         Alamofire.request(destinationGeocodingRequestURL).responseJSON { response in
-            let destinationLocation = self.location(forGeocodingResponseJSON: response.result.value as! [String : Any])
-            let randomLocations = self.randomLocations(aroundLocation: destinationLocation)
+            self.destinationLocation = self.location(forGeocodingResponseJSON: response.result.value as! [String : Any])
+            let randomLocations = self.randomLocations(aroundLocation: self.destinationLocation)
             let randomLocationsStrings = randomLocations.map { return "\($0.lat),\($0.lng)" }
             let randomLocationsString = randomLocationsStrings.joined(separator: "|").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
             
@@ -46,8 +49,7 @@ class PlannerViewController: UIViewController {
                 Alamofire.request(originGeocodingRequestURL).responseJSON { response in
                     let originLocation = self.location(forGeocodingResponseJSON: response.result.value as! [String : Any])
                     self.requestDirections(toParkingLocation: parkingLocations,
-                                           fromOriginLocation: originLocation,
-                                           routes: [])
+                                           fromOriginLocation: originLocation)
                 }
             }
         }
@@ -109,25 +111,21 @@ class PlannerViewController: UIViewController {
     }
     
     private func requestDirections(toParkingLocation parkingLocations: [(lat: Float, lng: Float)],
-                                   fromOriginLocation originLocation: (lat: Float, lng: Float),
-                                   routes: [Route]) {
+                                   fromOriginLocation originLocation: (lat: Float, lng: Float)) {
         if parkingLocations.isEmpty {
-            
+            self.performSegue(withIdentifier: "showRoutes", sender: self)
         } else {
             var parkingLocations = parkingLocations
             let parkingLocation = parkingLocations.removeFirst()
             
             Alamofire.request("https://maps.googleapis.com/maps/api/directions/json?origin=\(originLocation.lat),\(originLocation.lng)&destination=\(parkingLocation.lat),\(parkingLocation.lng)&key=AIzaSyDXHBInPM0n6zl7VNYs3VkXDpHQMj7BhoU").responseJSON { response in
-                var routes = routes
-                
                 let polyline = self.polyline(forDirectionsResponseJSON: response.result.value as! [String : Any])
                 let endAddress = self.endAddress(forDirectionsResponseJSON: response.result.value as! [String : Any])
                 let duration = self.duration(forDirectionsResponseJSON: response.result.value as! [String : Any])
                 let route = Route(polyline: polyline, endAddress: endAddress, duration: duration)
-                routes.append(route)
+                self.routes.append(route)
                 self.requestDirections(toParkingLocation: parkingLocations,
-                                       fromOriginLocation: originLocation,
-                                       routes: routes)
+                                       fromOriginLocation: originLocation)
             }
         }
     }
@@ -152,5 +150,12 @@ class PlannerViewController: UIViewController {
         let duration = legs[0]["duration"] as! [String : Any]
         
         return duration["text"] as! String
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let routeVC = segue.destination as! RouteViewController
+        routeVC.destination = self.destinationTextField.text!
+        routeVC.destinationLocation = self.destinationLocation
+        routeVC.routes = self.routes
     }
 }
