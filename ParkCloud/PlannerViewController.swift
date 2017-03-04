@@ -10,12 +10,25 @@ import Alamofire
 import GoogleMaps
 import UIKit
 
+struct Route {
+    let polyline: String
+    let endAddress: String
+    let duration: String
+}
+
 class PlannerViewController: UIViewController {
     
     @IBOutlet weak var originTextField: UITextField!
     @IBOutlet weak var destinationTextField: UITextField!
     
     @IBOutlet weak var mapView: GMSMapView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.mapView.animate(toLocation: CLLocationCoordinate2D(latitude: 52.5200, longitude: 13.4050))
+        self.mapView.animate(toZoom: 12)
+    }
     
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         let originGeocodingRequestURL = self.geocodingRequestURL(forAddress: self.originTextField.text!)
@@ -32,7 +45,9 @@ class PlannerViewController: UIViewController {
                 
                 Alamofire.request(originGeocodingRequestURL).responseJSON { response in
                     let originLocation = self.location(forGeocodingResponseJSON: response.result.value as! [String : Any])
-                    self.requestDirections(toParkingLocation: parkingLocations, fromOriginLocation: originLocation)
+                    self.requestDirections(toParkingLocation: parkingLocations,
+                                           fromOriginLocation: originLocation,
+                                           routes: [])
                 }
             }
         }
@@ -94,7 +109,8 @@ class PlannerViewController: UIViewController {
     }
     
     private func requestDirections(toParkingLocation parkingLocations: [(lat: Float, lng: Float)],
-                                   fromOriginLocation originLocation: (lat: Float, lng: Float)) {
+                                   fromOriginLocation originLocation: (lat: Float, lng: Float),
+                                   routes: [Route]) {
         if parkingLocations.isEmpty {
             
         } else {
@@ -102,9 +118,16 @@ class PlannerViewController: UIViewController {
             let parkingLocation = parkingLocations.removeFirst()
             
             Alamofire.request("https://maps.googleapis.com/maps/api/directions/json?origin=\(originLocation.lat),\(originLocation.lng)&destination=\(parkingLocation.lat),\(parkingLocation.lng)&key=AIzaSyDXHBInPM0n6zl7VNYs3VkXDpHQMj7BhoU").responseJSON { response in
+                var routes = routes
+                
                 let polyline = self.polyline(forDirectionsResponseJSON: response.result.value as! [String : Any])
-                print(polyline)
-                self.requestDirections(toParkingLocation: parkingLocations, fromOriginLocation: originLocation)
+                let endAddress = self.endAddress(forDirectionsResponseJSON: response.result.value as! [String : Any])
+                let duration = self.duration(forDirectionsResponseJSON: response.result.value as! [String : Any])
+                let route = Route(polyline: polyline, endAddress: endAddress, duration: duration)
+                routes.append(route)
+                self.requestDirections(toParkingLocation: parkingLocations,
+                                       fromOriginLocation: originLocation,
+                                       routes: routes)
             }
         }
     }
@@ -114,5 +137,20 @@ class PlannerViewController: UIViewController {
         let overviewPolyline = routes[0]["overview_polyline"] as! [String : String]
         
         return overviewPolyline["points"]!
+    }
+    
+    private func endAddress(forDirectionsResponseJSON json: [String : Any]) -> String {
+        let routes = json["routes"] as! [[String : Any]]
+        let legs = routes[0]["legs"] as! [[String : Any]]
+        
+        return legs[0]["end_address"] as! String
+    }
+    
+    private func duration(forDirectionsResponseJSON json: [String : Any]) -> String {
+        let routes = json["routes"] as! [[String : Any]]
+        let legs = routes[0]["legs"] as! [[String : Any]]
+        let duration = legs[0]["duration"] as! [String : Any]
+        
+        return duration["text"] as! String
     }
 }
