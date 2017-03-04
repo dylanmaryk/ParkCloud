@@ -12,8 +12,10 @@
 		358ACC871E6ACC68005C527A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358ACC851E6ACC68005C527A /* Main.storyboard */; };
 		358ACC891E6ACC68005C527A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 358ACC881E6ACC68005C527A /* Assets.xcassets */; };
 		358ACC8C1E6ACC68005C527A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358ACC8A1E6ACC68005C527A /* LaunchScreen.storyboard */; };
-		37289B041E6AD078006DA37E /* NMAKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37289B031E6AD078006DA37E /* NMAKit.framework */; };
-		37289B061E6AD091006DA37E /* NMABundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 37289B051E6AD091006DA37E /* NMABundle.bundle */; };
+		358ACC951E6AD194005C527A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 358ACC941E6AD194005C527A /* libc++.tbd */; };
+		358ACC971E6AD19B005C527A /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 358ACC961E6AD19B005C527A /* GLKit.framework */; };
+		358ACC991E6AD1A0005C527A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 358ACC981E6AD1A0005C527A /* SystemConfiguration.framework */; };
+		358ACC9A1E6AD1BE005C527A /* NMAKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37289B031E6AD078006DA37E /* NMAKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +26,10 @@
 		358ACC881E6ACC68005C527A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		358ACC8B1E6ACC68005C527A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		358ACC8D1E6ACC68005C527A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		358ACC941E6AD194005C527A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		358ACC961E6AD19B005C527A /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		358ACC981E6AD1A0005C527A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		37289B031E6AD078006DA37E /* NMAKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NMAKit.framework; sourceTree = "<group>"; };
-		37289B051E6AD091006DA37E /* NMABundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = NMABundle.bundle; path = ../../../../Downloads/HERE_iOS_SDK_Starter/framework/NMAKit.framework/Resources/NMABundle.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +37,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37289B041E6AD078006DA37E /* NMAKit.framework in Frameworks */,
+				358ACC991E6AD1A0005C527A /* SystemConfiguration.framework in Frameworks */,
+				358ACC971E6AD19B005C527A /* GLKit.framework in Frameworks */,
+				358ACC951E6AD194005C527A /* libc++.tbd in Frameworks */,
+				358ACC9A1E6AD1BE005C527A /* NMAKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +52,7 @@
 			children = (
 				358ACC801E6ACC68005C527A /* ParkCloud */,
 				358ACC7F1E6ACC68005C527A /* Products */,
+				358ACC931E6AD194005C527A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,24 +67,34 @@
 		358ACC801E6ACC68005C527A /* ParkCloud */ = {
 			isa = PBXGroup;
 			children = (
-				37289B021E6AD054006DA37E /* framworks */,
 				358ACC811E6ACC68005C527A /* AppDelegate.swift */,
-				358ACC831E6ACC68005C527A /* ViewController.swift */,
-				358ACC851E6ACC68005C527A /* Main.storyboard */,
 				358ACC881E6ACC68005C527A /* Assets.xcassets */,
-				358ACC8A1E6ACC68005C527A /* LaunchScreen.storyboard */,
 				358ACC8D1E6ACC68005C527A /* Info.plist */,
+				358ACC8A1E6ACC68005C527A /* LaunchScreen.storyboard */,
+				358ACC851E6ACC68005C527A /* Main.storyboard */,
+				358ACC831E6ACC68005C527A /* ViewController.swift */,
+				37289B021E6AD054006DA37E /* Framworks */,
 			);
 			path = ParkCloud;
 			sourceTree = "<group>";
 		};
-		37289B021E6AD054006DA37E /* framworks */ = {
+		358ACC931E6AD194005C527A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				37289B051E6AD091006DA37E /* NMABundle.bundle */,
+				358ACC981E6AD1A0005C527A /* SystemConfiguration.framework */,
+				358ACC961E6AD19B005C527A /* GLKit.framework */,
+				358ACC941E6AD194005C527A /* libc++.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37289B021E6AD054006DA37E /* Framworks */ = {
+			isa = PBXGroup;
+			children = (
 				37289B031E6AD078006DA37E /* NMAKit.framework */,
 			);
-			name = framworks;
+			name = Framworks;
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +158,6 @@
 			files = (
 				358ACC8C1E6ACC68005C527A /* LaunchScreen.storyboard in Resources */,
 				358ACC891E6ACC68005C527A /* Assets.xcassets in Resources */,
-				37289B061E6AD091006DA37E /* NMABundle.bundle in Resources */,
 				358ACC871E6ACC68005C527A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +296,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ParkCloud",
+					"$(PROJECT_DIR)/ParkCloud/Frameworks",
 				);
 				INFOPLIST_FILE = ParkCloud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -295,6 +313,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ParkCloud",
+					"$(PROJECT_DIR)/ParkCloud/Frameworks",
 				);
 				INFOPLIST_FILE = ParkCloud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
