@@ -12,6 +12,8 @@
 		358ACC871E6ACC68005C527A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358ACC851E6ACC68005C527A /* Main.storyboard */; };
 		358ACC891E6ACC68005C527A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 358ACC881E6ACC68005C527A /* Assets.xcassets */; };
 		358ACC8C1E6ACC68005C527A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358ACC8A1E6ACC68005C527A /* LaunchScreen.storyboard */; };
+		37289B041E6AD078006DA37E /* NMAKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37289B031E6AD078006DA37E /* NMAKit.framework */; };
+		37289B061E6AD091006DA37E /* NMABundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 37289B051E6AD091006DA37E /* NMABundle.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		358ACC881E6ACC68005C527A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		358ACC8B1E6ACC68005C527A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		358ACC8D1E6ACC68005C527A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37289B031E6AD078006DA37E /* NMAKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NMAKit.framework; sourceTree = "<group>"; };
+		37289B051E6AD091006DA37E /* NMABundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = NMABundle.bundle; path = ../../../../Downloads/HERE_iOS_SDK_Starter/framework/NMAKit.framework/Resources/NMABundle.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37289B041E6AD078006DA37E /* NMAKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +59,7 @@
 		358ACC801E6ACC68005C527A /* ParkCloud */ = {
 			isa = PBXGroup;
 			children = (
+				37289B021E6AD054006DA37E /* framworks */,
 				358ACC811E6ACC68005C527A /* AppDelegate.swift */,
 				358ACC831E6ACC68005C527A /* ViewController.swift */,
 				358ACC851E6ACC68005C527A /* Main.storyboard */,
@@ -62,6 +68,15 @@
 				358ACC8D1E6ACC68005C527A /* Info.plist */,
 			);
 			path = ParkCloud;
+			sourceTree = "<group>";
+		};
+		37289B021E6AD054006DA37E /* framworks */ = {
+			isa = PBXGroup;
+			children = (
+				37289B051E6AD091006DA37E /* NMABundle.bundle */,
+				37289B031E6AD078006DA37E /* NMAKit.framework */,
+			);
+			name = framworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +140,7 @@
 			files = (
 				358ACC8C1E6ACC68005C527A /* LaunchScreen.storyboard in Resources */,
 				358ACC891E6ACC68005C527A /* Assets.xcassets in Resources */,
+				37289B061E6AD091006DA37E /* NMABundle.bundle in Resources */,
 				358ACC871E6ACC68005C527A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +276,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ParkCloud",
+				);
 				INFOPLIST_FILE = ParkCloud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.parkcloud.ParkCloud;
@@ -272,6 +292,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ParkCloud",
+				);
 				INFOPLIST_FILE = ParkCloud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.parkcloud.ParkCloud;
@@ -299,6 +323,7 @@
 				358ACC921E6ACC68005C527A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
