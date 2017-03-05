@@ -941,10 +941,10 @@
                                 <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDQ-1z-Ag2">
-                                <rect key="frame" x="130" y="597" width="116" height="50"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDQ-1z-Ag2">
+                                <rect key="frame" x="90" y="569" width="194" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="cancel-ride-button"/>
+                                <state key="normal" image="cancel-ride-button"/>
                                 <connections>
                                     <segue destination="uXI-Fn-ecb" kind="show" id="asq-VA-eNQ"/>
                                 </connections>
