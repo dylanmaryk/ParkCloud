@@ -23,6 +23,7 @@ class AlertViewController: UIViewController {
         self.drivingToLabel.text = "Driving to \(self.destination!)"
         
         let polyline = GMSPolyline(path: GMSPath(fromEncodedPath: polylineString))
+        polyline.strokeWidth = 5
         polyline.map = self.mapView
         
         self.mapView.animate(toLocation: polyline.path!.coordinate(at: 0))

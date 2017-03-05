@@ -138,6 +138,7 @@
 				TargetAttributes = {
 					358ACC7D1E6ACC68005C527A = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = E6MXHV54BF;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -356,6 +357,8 @@
 			baseConfigurationReference = E3ED42D4954855626CC259D1 /* Pods-ParkCloud.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = E6MXHV54BF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ParkCloud",
@@ -374,6 +377,8 @@
 			baseConfigurationReference = 3E79C57BDA7445EC308F4B51 /* Pods-ParkCloud.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = E6MXHV54BF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ParkCloud",
