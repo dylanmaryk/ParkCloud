@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		03306D1EF90B0327247AD009 /* Pods_ParkCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2605FFEC6A88A714DE3CA547 /* Pods_ParkCloud.framework */; };
 		35058C4F1E6B69D000B69B89 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35058C4E1E6B69D000B69B89 /* RouteViewController.swift */; };
+		351335351E6B93130052963B /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351335341E6B93130052963B /* AlertViewController.swift */; };
+		351335371E6BA25B0052963B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351335361E6BA25B0052963B /* MapViewController.swift */; };
 		358ACC821E6ACC68005C527A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358ACC811E6ACC68005C527A /* AppDelegate.swift */; };
 		358ACC841E6ACC68005C527A /* PlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358ACC831E6ACC68005C527A /* PlannerViewController.swift */; };
 		358ACC871E6ACC68005C527A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358ACC851E6ACC68005C527A /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		2605FFEC6A88A714DE3CA547 /* Pods_ParkCloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkCloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35058C4E1E6B69D000B69B89 /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
+		351335341E6B93130052963B /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		351335361E6BA25B0052963B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		358ACC7E1E6ACC68005C527A /* ParkCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		358ACC811E6ACC68005C527A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		358ACC831E6ACC68005C527A /* PlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerViewController.swift; sourceTree = "<group>"; };
@@ -72,11 +76,13 @@
 		358ACC801E6ACC68005C527A /* ParkCloud */ = {
 			isa = PBXGroup;
 			children = (
+				351335341E6B93130052963B /* AlertViewController.swift */,
 				358ACC811E6ACC68005C527A /* AppDelegate.swift */,
 				358ACC881E6ACC68005C527A /* Assets.xcassets */,
 				358ACC8D1E6ACC68005C527A /* Info.plist */,
 				358ACC8A1E6ACC68005C527A /* LaunchScreen.storyboard */,
 				358ACC851E6ACC68005C527A /* Main.storyboard */,
+				351335361E6BA25B0052963B /* MapViewController.swift */,
 				358ACC831E6ACC68005C527A /* PlannerViewController.swift */,
 				35058C4E1E6B69D000B69B89 /* RouteViewController.swift */,
 			);
@@ -217,6 +223,8 @@
 				358ACC841E6ACC68005C527A /* PlannerViewController.swift in Sources */,
 				358ACC821E6ACC68005C527A /* AppDelegate.swift in Sources */,
 				35058C4F1E6B69D000B69B89 /* RouteViewController.swift in Sources */,
+				351335371E6BA25B0052963B /* MapViewController.swift in Sources */,
+				351335351E6B93130052963B /* AlertViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

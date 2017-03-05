@@ -11,6 +11,7 @@ import GoogleMaps
 import UIKit
 
 struct Route {
+    let parkingLocation: (lat: Float, lng: Float)
     let polyline: String
     let endAddress: String
     let duration: String
@@ -122,7 +123,10 @@ class PlannerViewController: UIViewController {
                 let polyline = self.polyline(forDirectionsResponseJSON: response.result.value as! [String : Any])
                 let endAddress = self.endAddress(forDirectionsResponseJSON: response.result.value as! [String : Any])
                 let duration = self.duration(forDirectionsResponseJSON: response.result.value as! [String : Any])
-                let route = Route(polyline: polyline, endAddress: endAddress, duration: duration)
+                let route = Route(parkingLocation: parkingLocation,
+                                  polyline: polyline,
+                                  endAddress: endAddress,
+                                  duration: duration)
                 self.routes.append(route)
                 self.requestDirections(toParkingLocation: parkingLocations,
                                        fromOriginLocation: originLocation)
