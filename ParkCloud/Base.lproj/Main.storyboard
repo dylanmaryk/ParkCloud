@@ -208,7 +208,7 @@
                         <viewControllerLayoutGuide type="bottom" id="f8a-Vz-FUX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fyI-ur-dYV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lqf-tm-mb4">
@@ -286,22 +286,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qit-vz-VSy" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="152" width="375" height="451"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BR-P4-inz">
-                                        <rect key="frame" x="49" y="358" width="277" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="  See parking spots around me" image="parking">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="yJV-2U-4xg" kind="presentation" id="bdb-uM-pPZ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                                <rect key="frame" x="0.0" y="152" width="375" height="515"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BR-P4-inz">
+                                <rect key="frame" x="49" y="595" width="277" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="0.87" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="  See parking spots around me" image="parking">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="yJV-2U-4xg" kind="presentation" id="bdb-uM-pPZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.25882352939999997" green="0.80784313730000001" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -316,6 +314,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Hzf-F2-LLH"/>
                     <connections>
+                        <outlet property="button" destination="5BR-P4-inz" id="RYY-z1-anD"/>
                         <outlet property="destinationTextField" destination="dhy-j0-vaQ" id="Db7-73-DsW"/>
                         <outlet property="mapView" destination="qit-vz-VSy" id="HWD-Bb-V7N"/>
                         <outlet property="originTextField" destination="jmb-vl-mPF" id="eFi-ac-crI"/>
@@ -344,7 +343,7 @@
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmt-Jd-DE4">
-                                <rect key="frame" x="0.0" y="6" width="30" height="30"/>
+                                <rect key="frame" x="0.0" y="9" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <state key="normal" title="X">
@@ -355,7 +354,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Find a Parking Spot around me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nb-nH-gUa">
-                                <rect key="frame" x="62" y="10" width="251" height="21"/>
+                                <rect key="frame" x="62" y="13" width="251" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
