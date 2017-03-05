@@ -34,6 +34,39 @@ class RouteViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.mapView.animate(toLocation: CLLocationCoordinate2D(latitude: CLLocationDegrees(self.destinationLocation.lat),
                                                                 longitude: CLLocationDegrees(self.destinationLocation.lng)))
         self.mapView.animate(toZoom: 14)
+        
+        for (index, route) in routes.enumerated() {
+            let position = CLLocationCoordinate2D(latitude: CLLocationDegrees(route.parkingLocation.lat),
+                                                  longitude: CLLocationDegrees(route.parkingLocation.lng))
+            let marker = GMSMarker(position: position)
+            
+            let iconView: UIImageView
+            
+            if index == 0 {
+                iconView = UIImageView(image: UIImage(named: "group-green"))
+            } else if index == 1 {
+                iconView = UIImageView(image: UIImage(named: "group-yellow"))
+            } else {
+                iconView = UIImageView(image: UIImage(named: "group-red"))
+            }
+            
+            let label = UILabel(frame: iconView.frame)
+            label.textAlignment = .center
+            
+            if index == 0 {
+                label.text = "5"
+            } else if index == 1 {
+                label.text = "3"
+            } else if index == 2 {
+                label.text = "1"
+            } else {
+                label.text = "0"
+            }
+            
+            iconView.addSubview(label)
+            marker.iconView = iconView
+            marker.map = self.mapView
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
